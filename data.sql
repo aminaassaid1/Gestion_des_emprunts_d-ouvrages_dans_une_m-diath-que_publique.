@@ -2,6 +2,7 @@ CREATE TABLE IF NOT EXISTS Adhérent (
 ID_adhérent INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
 first_name VARCHAR(50) NOT NULL,
 last_name VARCHAR(50) NOT NULL,
+user_name VARCHAR(50) NOT NULL, 
 email VARCHAR(30) NOT NULL,
 phone VARCHAR(13) NOT NULL,
 birthday DATE  NOT NULL,
@@ -38,6 +39,8 @@ FOREIGN KEY (ID_ouvrage) REFERENCES Ouvrage(ID_ouvrage)
 
 CREATE TABLE Bibliothécaire (
 ID_bibliothécaire INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+first_name VARCHAR(30),
+last_name VARCHAR(30),
 email VARCHAR(30) NOT NULL,
 password VARCHAR(1000) NOT NULL
 );
