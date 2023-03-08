@@ -8,7 +8,7 @@ $con = mysqli_connect('localhost', 'root', '', 'gestion_des_emprunts');
 $sql = mysqli_query($con, "SELECT * FROM `bibliothécaire` WHERE email='$email'");
 $row = mysqli_fetch_array($sql);
 if (is_array($row)) {
-    if (password_verify($password, $row['password'])){
+    if ($password ==$row['password']){
         $_SESSION["email"] = $row["email"];
         $_SESSION["password"] = $row["password"];
         $_SESSION["id_bib"]=$row["ID_bibliothécaire"];
@@ -28,7 +28,7 @@ if (is_array($row)) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="signin.css">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
