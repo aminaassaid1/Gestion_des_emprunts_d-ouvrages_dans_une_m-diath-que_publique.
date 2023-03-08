@@ -1,3 +1,27 @@
+<?php
+session_start();
+$msgs="";
+if (isset($_POST['Bibliothécaire'])){
+$email = $_POST['email'];
+$password = $_POST['password'];
+$con = mysqli_connect('localhost', 'root', '', 'gestion_des_emprunts');
+$sql = mysqli_query($con, "SELECT * FROM `bibliothécaire` WHERE email='$email'");
+$row = mysqli_fetch_array($sql);
+if (is_array($row)) {
+    if (password_verify($password, $row['password'])){
+        $_SESSION["email"] = $row["email"];
+        $_SESSION["password"] = $row["password"];
+        $_SESSION["id_bib"]=$row["ID_bibliothécaire"];
+        $_SESSION["fname"]=$row["first_name"];
+        $_SESSION["lname"]=$row["last_name"];
+        header("location:home.php");
+    }
+    
+    } 
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,26 +35,22 @@
         <div class="main">
                 <div class="login">
                     <form action="" method="post">
+                        <h1>LOGIN</h1>
                     <div>
-                        <input class="infoLog" type="text" placeholder="E-mail" >
+                        <input class="infoLog" type="email" name="email" placeholder="E-mail" >
                     </div>
                     <div>
-                        <input class="infoLog" type="text" placeholder="password">
+                        <input class="infoLog" type="text" name="password" placeholder="password">
                     </div>
                         <div class ="radio">
-                        <div class="infoLog" style="width: 80px;" >
-                        <input type="radio" id="bibliothécaire" name="info" value="Bibliothécaire">
-                        <label for="bibliothécaire">Bibliothécaire</label>
-                    </div>
-                    <div class="infoLog" style="width: 80x;;" >
-                        <input type="radio" id="adhérent" name="info" value="Adhérent">
-                        <label for="adhérent">Adhérent</label>
-                    </div>
+                            <div>
+                                <input class="infoLog" style="width: 80px;"  type="submit" name="Adhérent" value="Adhérent" placeholder="Adhérent">
+                            </div>
+                            <div>
+                                <input class="infoLog" style="width: 80px;" type="submit" name="Bibliothécaire" value="Bibliothécaire" placeholder="Bibliothécaire">
+                            </div>
                         </div>
-                    <div>
-                        <input type="submit" value="Login" placeholder="LOGIN">
                     </form>
-                    </div>
                 </div>
             </div> 
  
