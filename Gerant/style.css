@@ -72,7 +72,6 @@ flex-grow: 0;
 }
 
 .search{
-    position: absolute;
     width: 460px;
     height: 45px;
     left: 336px;
@@ -85,4 +84,28 @@ flex-grow: 0;
 .acceuil{
     display: flex;
     flex-direction: column;
+}
+
+#card{
+
+
+background: #BEAF98;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 14px;
+}
+.members{
+    display:flex;
+    flex-direction: column;
+    gap:3rem;
+}
+.T-members{
+    margin-top:3%;
+    display: flex;
+    flex-direction: row;
+    gap:80rem;
+}
+.ajouter{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
 }
