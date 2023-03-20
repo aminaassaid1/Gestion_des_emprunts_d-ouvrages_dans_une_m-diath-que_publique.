@@ -34,7 +34,7 @@
                             <a class="nav-link" href="#">Borrowings</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Ouvrage</a>
+                            <a class="nav-link" href="ouvrage.php">Ouvrage</a>
                         </li>
                 </div>
             </div>

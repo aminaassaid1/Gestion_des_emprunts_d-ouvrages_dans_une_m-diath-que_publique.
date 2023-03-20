@@ -9,6 +9,7 @@ $sql = mysqli_query($con, "SELECT * FROM `bibliothécaire` WHERE email='$email'"
 $row = mysqli_fetch_array($sql);
 if (is_array($row)) {
     if ($password ==$row['password']){
+        
         $_SESSION["email"] = $row["email"];
         $_SESSION["password"] = $row["password"];
         $_SESSION["id_bib"]=$row["ID_bibliothécaire"];
@@ -44,7 +45,7 @@ if (is_array($row)) {
                     </div>
                         <div class ="radio">
                             <div>
-                                <input class="infoLog" style="width: 80px;"  type="submit" name="Adhérent" value="Adhérent" placeholder="Adhérent">
+                                <input class="infoLog" style="width: 80px;"  type="submit" name="signup" value="sign up" placeholder="sign up">
                             </div>
                             <div>
                                 <input class="infoLog" style="width: 80px;" type="submit" name="Bibliothécaire" value="Bibliothécaire" placeholder="Bibliothécaire">

@@ -102,10 +102,10 @@ border-radius: 14px;
     margin-top:3%;
     display: flex;
     flex-direction: row;
-    gap:80rem;
+    /* gap:8rem; */
 }
 .ajouter{
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 2rem;
 }
