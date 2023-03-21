@@ -47,7 +47,7 @@ $con = mysqli_connect('localhost', 'root', '', 'gestion_des_emprunts');
     <div class="ajouter">
         <div class="T-members">
             <div  style="margin-top:5%;">
-                <h1>Membres</h1>
+                <h1>OUVRAGE</h1>
             </div>
             <div>
             <button type="button" class="infoLog" data-bs-toggle="modal" data-bs-target="#exampleModal">+ADD</button>

@@ -12,7 +12,7 @@
                     $birthday=$_POST['birthday'];
                     $username=$_POST['username'];
                     $type =$_POST['type'];
-                    move_uploaded_file($_FILES['profil']['tmp_name'], "../img/".$profil);
+                    move_uploaded_file($_FILES['profil']['tmp_name'], "./img/".$profil);
                     $sqlADD = "INSERT INTO `adhérent`( `profile`, `first_name`, `last_name`, `user_name`, `email`, `phone`, `birthday`, `CIN`, `date_inscription`, `type_adhérenent`, `password`) VALUES ('../img/$profil','$firstname','$lastname','$username','$email','$phone','$birthday','$cin','$inscription','$type','$hashed_password')";
                     $con = mysqli_connect('localhost', 'root', '', 'gestion_des_emprunts');
                     $result = mysqli_query($con,$sqlADD);

@@ -28,7 +28,7 @@
                             <a class="nav-link active" aria-current="page" href="members.php">Members</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Reservations</a>
+                            <a class="nav-link" href="resevation.php">Reservations</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Borrowings</a>
