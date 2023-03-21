@@ -8,7 +8,7 @@ $con = mysqli_connect('localhost', 'root', '', 'gestion_des_emprunts');
 $sql = mysqli_query($con, "SELECT * FROM `adhérent` WHERE email='$email'");
 $row = mysqli_fetch_array($sql);
 if (is_array($row)) {
-    if ($password ==$row['password']){
+    if (password_verify($password,$row["password"])){
         $_SESSION["id_adr"]=$row["ID_adhérent"];
         $_SESSION["email"] = $row["email"];
         $_SESSION["password"] = $row["password"];

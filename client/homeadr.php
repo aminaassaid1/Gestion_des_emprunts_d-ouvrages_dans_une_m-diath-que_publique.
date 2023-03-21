@@ -42,23 +42,90 @@ $con = mysqli_connect('localhost', 'root', '', 'gestion_des_emprunts');
     </nav>
     </div>
     </div>
-    <div class="home">
-            <div>
-                <input type="submit" class="search" placeholder="E-mail" >
-            </div>
-    </div>
-    <section>
+    
             <!-- CARD OUVRAGE -->
     <section>
         <?php
         if(isset($_GET["response"])){
             if($_GET["response"]== "Torn"){
-                echo"<div id='popup-box'>
-                <h2>Welcome to my website!</h2>
-                <p>This is a popup box created using HTML, CSS, and JavaScript.</p>
-                <button onclick='hidePopup()'>Close</button>
-              </div>"
-                // echo"this book is torn";
+                ?>
+                <button id="modal-btn" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></button>Launch static backdrop modal</button>
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                        </div>
+                        <div class="modal-body">
+                        this book is torn
+                        </div>
+                        <div class="modal-footer">
+                        <a href="homeadr.php"  class="btn btn-secondary" >Close</a>
+
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                <?php
+                
+            }elseif($_GET["response"]== "pénalité"){
+                ?>
+                <button id="modal-btn" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Launch static backdrop modal</button>
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                        </div>
+                        <div class="modal-body">
+                        you have more than 3 penalties
+                        </div>
+                        <div class="modal-footer">
+                        <a href="homeadr.php"  class="btn btn-secondary">Close</a>
+
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                <?php
+            }elseif($_GET["response"]== "reserve"){
+                ?>
+                <button id="modal-btn" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Launch static backdrop modal</button>
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>                        </div>
+                            <div class="modal-body">
+                            the book is not available
+                            </div>
+                            <div class="modal-footer">
+                                <a href="homeadr.php"  class="btn btn-secondary">Close</a>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php
+            }elseif($_GET["response"]== "ok"){
+                ?>
+                <button id="modal-btn" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Launch static backdrop modal</button>
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                        </div>
+                        <div class="modal-body">
+                        bien reserver
+                        </div>
+                        <div class="modal-footer">
+                        <a href="homeadr.php"  class="btn btn-secondary">Close</a>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                <?php
+                
             }
         }
         ?>
@@ -72,8 +139,8 @@ $con = mysqli_connect('localhost', 'root', '', 'gestion_des_emprunts');
                             <div class="card-body">
                                 <h5><?php echo $lighn["name_ouvrage"]?></h5>
                                 <div>
-                                    <p><?php echo $lighn["state_ouvrage"]?></p>
-                                    <p><?php echo $lighn["type_ouvrage"]?></p>
+                                    <p> State : <?php echo $lighn["state_ouvrage"]?></p>
+                                    <p>Type : <?php echo $lighn["type_ouvrage"]?></p>
                                 </div>
                                 <form action="reservationadr.php" method="GET">
                                     <input type="submit" value="reserve" name="reserve">
@@ -89,5 +156,15 @@ $con = mysqli_connect('localhost', 'root', '', 'gestion_des_emprunts');
     </section>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<?php
+if(isset($_GET["response"])){
+    ?>
+    <script>
+        setTimeout(() => {
+            document.getElementById('modal-btn').click()
+        }, 200);
+    </script>
+    <?php
+}?>
 </body>
 </html>

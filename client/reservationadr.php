@@ -8,14 +8,42 @@ if (isset($_GET['reserve'])){
     $sqlres ="SELECT * FROM `ouvrage` WHERE ID_ouvrage ='$idouv'";
     $result = mysqli_query($con,$sqlres);
     $fetch= mysqli_fetch_assoc($result);
-    $fetch["state_ouvrage"] = "Torn";
     if($fetch["state_ouvrage"] == "Torn" ){
         header('Location: homeadr.php?response=Torn');
         exit();
     }
     // ------------test2
+    $sql_pinalite = "SELECT * FROM `adhérent` WHERE ID_adhérent='$id_adr'";
+    $result = mysqli_query($con,$sql_pinalite);
+    $fetch= mysqli_fetch_assoc($result);
+    $pénalité = $fetch["pénalité"];
+    if ($pénalité >= 3){
+        header('Location: homeadr.php?response=pénalité');
+        exit();
+    }
+    // ------------test3
+    $date_res = "SELECT COUNT(*) AS count FROM `reservation` WHERE ID_adhérent ='$id_adr' AND TIMESTAMPDIFF(hour,date_reservation,CURRENT_TIMESTAMP) < 24 AND ID_reservation NOT IN (SELECT id_reservation FROM emprunt);";
+    $result = mysqli_query($con,$date_res);
+    $fetch= mysqli_fetch_assoc($result);
+    $reservation = $fetch["count"];
 
-    // $sqlres= "INSERT INTO `reservation`( `ID_adhérent`, `ID_ouvrage`) VALUES ('$id_adr','$idouv')";
-    // mysqli_query($con,$sqlres);
+    // ------------test5
+   $sql_borrowing ="SELECT COUNT(*) AS counte FROM `emprunt` JOIN `reservation` r ON r.ID_reservation = emprunt.id_reservation WHERE ID_adhérent= '$id_adr' AND date_retour IS NULL " ;
+   $result = mysqli_query($con,$sql_borrowing);
+    $fetch= mysqli_fetch_assoc($result);
+    $emprunt = $fetch["counte"];
+
+    if($emprunt + $reservation >=3){
+        if ($pénalité >= 3){
+            header('Location: homeadr.php?response=reserve');
+            exit();
+        }
+    }
+
+    $sqlres= "INSERT INTO `reservation`( `ID_adhérent`, `ID_ouvrage`) VALUES ('$id_adr','$idouv')";
+    mysqli_query($con,$sqlres);
+    header('Location: my_reservation.php?response=ok');
+    exit();
+
 };
 ?>

@@ -85,3 +85,6 @@ flex-grow: 0;
     display: flex;
     flex-direction: column;
 }
+#modal-btn{
+    display: none;
+}
