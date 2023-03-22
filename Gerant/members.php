@@ -118,7 +118,7 @@ $con = mysqli_connect('localhost', 'root', '', 'gestion_des_emprunts');
                     </div>
                     <div class="col">
                     <div class="form-outline">
-                    <select name="type">
+                    <select name="type" class="form-select" aria-label="Default select example">
                         <option selected >Type </option>
                         <option value="Housewife">Housewife</option>
                         <option value="Employee">Employee</option>

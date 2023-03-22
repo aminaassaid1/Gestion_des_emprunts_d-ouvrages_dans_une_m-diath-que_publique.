@@ -1,7 +1,7 @@
 <?php
 session_start();
 $msgs="";
-if (isset($_POST['Bibliothécaire'])){
+if (isset($_POST['signin'])){
 $email = $_POST['email'];
 $password = $_POST['password'];
 $con = mysqli_connect('localhost', 'root', '', 'gestion_des_emprunts');
@@ -41,14 +41,11 @@ if (is_array($row)) {
                         <input class="infoLog" type="email" name="email" placeholder="E-mail" >
                     </div>
                     <div>
-                        <input class="infoLog" type="text" name="password" placeholder="password">
+                        <input class="infoLog" type="password" name="password" placeholder="password">
                     </div>
                         <div class ="radio">
                             <div>
-                                <input class="infoLog" style="width: 80px;"  type="submit" name="signup" value="sign up" placeholder="sign up">
-                            </div>
-                            <div>
-                                <input class="infoLog" style="width: 80px;" type="submit" name="Bibliothécaire" value="Bibliothécaire" placeholder="Bibliothécaire">
+                                <input class="infoLog" style="width: 80px;" type="submit" name="signin" value="signin" placeholder="signin">
                             </div>
                         </div>
                     </form>

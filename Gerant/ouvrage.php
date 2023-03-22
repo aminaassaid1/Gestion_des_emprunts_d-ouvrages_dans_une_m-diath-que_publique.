@@ -101,7 +101,7 @@ $con = mysqli_connect('localhost', 'root', '', 'gestion_des_emprunts');
                 </div>
                 <div class="col">
                     <div class="form-outline">
-                    <select name="state">
+                    <select name="state" class="form-select" aria-label="Default select example">
                         <option selected >state </option>
                         <option value="New">New</option>
                         <option value="Good">Good</option>
@@ -121,7 +121,7 @@ $con = mysqli_connect('localhost', 'root', '', 'gestion_des_emprunts');
                 </div>
                 <div class="col">
                     <div class="form-outline">
-                    <select name="type">
+                    <select name="type" class="form-select" aria-label="Default select example">
                         <option selected >Type </option>
                         <option value="book">book</option>
                         <option value="novel">novel</option>
