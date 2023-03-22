@@ -31,10 +31,10 @@ $con = mysqli_connect('localhost', 'root', '', 'gestion_des_emprunts');
                             <a class="nav-link active" aria-current="page" href="members.php">Members</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Reservations</a>
+                            <a class="nav-link" href="resevation.php">Reservations</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Borrowings</a>
+                            <a class="nav-link" href="emprent.php">Borrowings</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="ouvrage.php">Ouvrage</a>
@@ -155,14 +155,14 @@ $con = mysqli_connect('localhost', 'root', '', 'gestion_des_emprunts');
 <!-- INSERT TO BDD OUVRAGE -->
 <?php
                 if (isset($_POST['addouv'])){
-                    $name =$_POST['name'];
-                    $main = $_FILES['main']['name'];
+                    $name =addslashes($_POST['name']);
+                    $main = addslashes("img/".$_FILES['main']['name']);
                     $state = $_POST['state'];
                     $achat = $_POST['achat'];
                     $type= $_POST['type'];
                     $page= $_POST['page'];
                     
-                    move_uploaded_file($_FILES['main']['tmp_name'], "./".$main);
+                    move_uploaded_file($_FILES['main']['tmp_name'],$main);
                     $sqlADD_ouv = "INSERT INTO `ouvrage`( `name_ouvrage`, `state_ouvrage`, `date_achat`, `type_ouvrage`, `pages_ouvrage`, `image_main`) VALUES ('$name','$state',' $achat','$type','$page','$main')";
                     $result = mysqli_query($con,$sqlADD_ouv);
                     

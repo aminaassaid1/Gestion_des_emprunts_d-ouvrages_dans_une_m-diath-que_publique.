@@ -30,7 +30,7 @@
                             <a class="nav-link" href="resevation.php">Reservations</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Borrowings</a>
+                            <a class="nav-link" href="emprent.php">Borrowings</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="ouvrage.php">Ouvrage</a>

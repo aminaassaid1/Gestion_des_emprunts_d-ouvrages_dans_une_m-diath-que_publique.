@@ -9,15 +9,15 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="acceuil">
-    <div class="landing">
-    <nav class="navbar bg-body-tertiary fixed-top">
+<nav class="navbar bg-body-tertiary fixed-top" class="navbar bg-dark" data-bs-theme="dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">SOLI-LIBRARY</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title" id="offcanvasNavbarLabel">AMINA</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -40,11 +40,9 @@
             </div>
         </div>
     </nav>
-    </div>
-    </div>
     <section>
-    <?php
-                    $SQL= "SELECT * FROM ouvrage";
+                <?php
+                    $SQL= "SELECT * FROM `emprunt` INNER JOIN reservation on emprunt.ID_reservation = reservation.ID_reservation INNER JOIN ouvrage on ouvrage.ID_ouvrage = reservation.ID_ouvrage";
                     $con = mysqli_connect('localhost', 'root', '', 'gestion_des_emprunts');
                     $resulta = mysqli_query($con,$SQL);
                     while($lighn=mysqli_fetch_assoc($resulta)){
@@ -63,7 +61,3 @@
                     }
                 ?>
     </section>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-</body>
-</html>
