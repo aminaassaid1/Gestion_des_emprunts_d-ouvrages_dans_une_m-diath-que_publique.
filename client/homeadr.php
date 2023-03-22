@@ -34,7 +34,7 @@ $con = mysqli_connect('localhost', 'root', '', 'gestion_des_emprunts');
                             <a class="nav-link" href="my_reservation.php">My Reservations</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">My borrowings </a>
+                            <a class="nav-link" href="My_emprent.php">My borrowings </a>
                         </li>
                 </div>
             </div>

@@ -14,7 +14,7 @@ if (is_array($row)) {
         $_SESSION["password"] = $row["password"];
         $_SESSION["fname"]=$row["first_name"];
         $_SESSION["lname"]=$row["last_name"];
-        $_SESSION["phone"]=$row["`phone`"];
+        $_SESSION["phone"]=$row["phone"];
         $_SESSION["cin"]=$row["CIN"];
         $_SESSION["type_adhérenent"]=$row["type_adhérenent"];
         header("location:homeadr.php");

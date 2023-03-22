@@ -9,8 +9,7 @@
     <title>Document</title>
 </head>
 <body>
-<div id="main">
-<nav class="navbar bg-body-tertiary fixed-top" class="navbar bg-dark" data-bs-theme="dark">
+    <nav class="navbar bg-body-tertiary fixed-top" class="navbar bg-dark" data-bs-theme="dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">SOLI-LIBRARY</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
@@ -38,12 +37,11 @@
             </div>
         </div>
     </nav>
-    <section >
-        
+    <section>
                 <?php
-                    session_start();
-                    $id_user = $_SESSION["id_adr"];
-                    $SQL= "SELECT * FROM `reservation` INNER JOIN ouvrage on reservation.ID_ouvrage = ouvrage.ID_ouvrage INNER JOIN adhérent on reservation.ID_adhérent = adhérent.ID_adhérent WHERE reservation.ID_adhérent = '$id_user'";
+                session_start();
+                $id= $_SESSION["id_adr"];
+                    $SQL= "SELECT * FROM `emprunt` INNER JOIN reservation on emprunt.ID_reservation = reservation.ID_reservation INNER JOIN ouvrage on ouvrage.ID_ouvrage = reservation.ID_ouvrage WHERE reservation.ID_adhérent = '$id' ";
                     $con = mysqli_connect('localhost', 'root', '', 'gestion_des_emprunts');
                     $resulta = mysqli_query($con,$SQL);
                     while($lighn=mysqli_fetch_assoc($resulta)){
@@ -60,13 +58,8 @@
                         </div>
                         <?php
                     }
-                ?>  
-    </section>
-</div>
-    
-    
-
+                ?>
+    </section> 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-   
 </body>
 </html>
