@@ -42,7 +42,7 @@ if (isset($_GET['reserve'])){
 
     $sqlres= "INSERT INTO `reservation`( `ID_adhérent`, `ID_ouvrage`) VALUES ('$id_adr','$idouv')";
     mysqli_query($con,$sqlres);
-    header('Location: my_reservation.php?response=ok');
+    header('Location: homeadr.php?response=ok');
     exit();
 
 };

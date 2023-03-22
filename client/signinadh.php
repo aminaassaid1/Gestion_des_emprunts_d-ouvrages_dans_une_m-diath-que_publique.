@@ -43,7 +43,7 @@ if (is_array($row)) {
                         <input class="infoLog" type="email" name="email" placeholder="E-mail" >
                     </div>
                     <div>
-                        <input class="infoLog" type="text" name="password" placeholder="password">
+                        <input class="infoLog" type="password" name="password" placeholder="password">
                     </div>
                         <div class ="radio">
                             <div>

@@ -143,7 +143,7 @@ $con = mysqli_connect('localhost', 'root', '', 'gestion_des_emprunts');
                                     <p>Type : <?php echo $lighn["type_ouvrage"]?></p>
                                 </div>
                                 <form action="reservationadr.php" method="GET">
-                                    <input type="submit" value="reserve" name="reserve">
+                                    <input type="submit" value="reserve" class="btn btn-success" name="reserve">
                                     <input type='hidden' value="<?=$lighn["ID_ouvrage"]?>" class='d-none' name='ID_ouv' id='id'>
                                 </form>
                             </div> 
