@@ -47,9 +47,10 @@
                     $SQL= "SELECT * FROM ouvrage";
                     $con = mysqli_connect('localhost', 'root', '', 'gestion_des_emprunts');
                     $resulta = mysqli_query($con,$SQL);
+                    echo '<div class = "row d-flex justify-content-around pt-5">';
                     while($lighn=mysqli_fetch_assoc($resulta)){
                         ?>
-                        <div id="card" class="card col-md-5 col-lg-3 p-0 m-0" >
+                        <div id="card" class="card col-md-4 col-lg-3 p-0 m-0" >
                             <img src="<?php echo $lighn["image_main"]?>" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5><?php echo $lighn["name_ouvrage"]?></h5>
@@ -61,6 +62,7 @@
                         </div>
                         <?php
                     }
+                    echo '</div>';
                 ?>
     </section>
 
