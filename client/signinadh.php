@@ -9,15 +9,20 @@ $sql = mysqli_query($con, "SELECT * FROM `adhérent` WHERE email='$email'");
 $row = mysqli_fetch_array($sql);
 if (is_array($row)) {
     if (password_verify($password,$row["password"])){
-        $_SESSION["id_adr"]=$row["ID_adhérent"];
-        $_SESSION["email"] = $row["email"];
-        $_SESSION["password"] = $row["password"];
-        $_SESSION["fname"]=$row["first_name"];
-        $_SESSION["lname"]=$row["last_name"];
-        $_SESSION["phone"]=$row["phone"];
-        $_SESSION["cin"]=$row["CIN"];
-        $_SESSION["type_adhérenent"]=$row["type_adhérenent"];
-        header("location:homeadr.php");
+        if($row["pénalité"]>=3){
+            header("Location:banned.php");
+        }else{
+            $_SESSION["id_adr"]=$row["ID_adhérent"];
+            $_SESSION["email"] = $row["email"];
+            $_SESSION["password"] = $row["password"];
+            $_SESSION["fname"]=$row["first_name"];
+            $_SESSION["lname"]=$row["last_name"];
+            $_SESSION["phone"]=$row["phone"];
+            $_SESSION["cin"]=$row["CIN"];
+            $_SESSION["type_adhérenent"]=$row["type_adhérenent"];
+            header("location:homeadr.php");
+        }
+       
     }
     
     } 

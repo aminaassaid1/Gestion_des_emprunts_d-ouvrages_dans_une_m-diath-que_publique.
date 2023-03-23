@@ -66,7 +66,7 @@ flex-grow: 0;
     justify-content: center;
     align-items: center;
     height: 100vh !important;
-    background-image: url(img/landing.png);
+    background-image: url(img/landing.png) !important;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -99,4 +99,4 @@ flex-grow: 0;
     background: #BEAF98;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 14px;
-    }
+}
