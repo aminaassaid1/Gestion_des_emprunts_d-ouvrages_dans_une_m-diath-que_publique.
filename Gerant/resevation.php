@@ -44,24 +44,27 @@
                     $SQL= "SELECT * FROM `reservation` INNER JOIN ouvrage on reservation.ID_ouvrage = ouvrage.ID_ouvrage INNER JOIN adhérent on reservation.ID_adhérent = adhérent.ID_adhérent ";
                     $con = mysqli_connect('localhost', 'root', '', 'gestion_des_emprunts');
                     $resulta = mysqli_query($con,$SQL);
-                    while($lighn=mysqli_fetch_assoc($resulta)){
-                        ?>
-                        <div id="card" class="card col-md-5 col-lg-3 p-0 m-0" >
-                            <img src="<?php echo $lighn["image_main"]?>" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5><?php echo $lighn["name_ouvrage"]?></h5>
-                                <div>
-                                    <p> State : <?php echo $lighn["state_ouvrage"]?></p>
-                                    <p>Type : <?php echo $lighn["type_ouvrage"]?></p>
-                                </div>
-                                <form action="gestionreserver.php" method="GET">
-                                    <input type="submit" class="btn btn-success" value="valider" name="valider">
-                                    <input type='hidden' value="<?=$lighn["ID_reservation"]?>" class='d-none' name='ID_reserv' id='id'>
-                                </form>
-                            </div> 
-                        </div>
-                        <?php
-                    }
+                    echo '<div class = "row d-flex justify-content-around pt-5">';
+                        while($lighn=mysqli_fetch_assoc($resulta)){
+                            ?>
+                            <div id="card" class="card col-md-4 col-lg-3 p-0 m-0" >
+                                <img src="<?php echo $lighn["image_main"]?>" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5><?php echo $lighn["name_ouvrage"]?></h5>
+                                    <div>
+                                        <p> State : <?php echo $lighn["state_ouvrage"]?></p>
+                                        <p>Type : <?php echo $lighn["type_ouvrage"]?></p>
+                                    </div>
+                                    <form action="gestionreserver.php" method="GET">
+                                        <input type="submit" class="btn btn-success" value="valider" name="valider">
+                                        <input type='hidden' value="<?=$lighn["ID_reservation"]?>" class='d-none' name='ID_reserv' id='id'>
+                                    </form>
+                                </div> 
+                            </div>
+                            <?php
+                        }
+                    echo '</div>';
+
                 ?>
     </section>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>

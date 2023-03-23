@@ -66,20 +66,26 @@ $con = mysqli_connect('localhost', 'root', '', 'gestion_des_emprunts');
             <?php
                 $sql = "SELECT * FROM adhérent"; 
                 $result = mysqli_query($con,$sql);
-                while($row=mysqli_fetch_assoc($result)){
-                    ?>
-                    <div id="card" class="card col-md-5 col-lg-3 p-0 m-0" >
-                        <img src="<?php echo $row["profile"]?>" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title"><?php echo $row["user_name"]?></h5>
-                            <p class="card-text"><?php echo $row["first_name"]?> <?php echo $row["last_name"]?></p>
-                            <p class="card-text"><?php echo $row["CIN"]?></p>
-                            <p class="card-text"><?php echo $row["phone"]?></p>
-                            <p class="card-text"><?php echo $row["email"]?></p>
+                echo '<div class = "row d-flex justify-content-around pt-5">';
+                    while($row=mysqli_fetch_assoc($result)){
+                        
+                        ?>
+                        <div id="card" class="card col-md-4 col-lg-3 p-0 m-0" >
+                            <img src="<?php echo $row["profile"]?>" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo $row["user_name"]?></h5>
+                                <p class="card-text"><?php echo $row["first_name"]?> <?php echo $row["last_name"]?></p>
+                                <p class="card-text"><?php echo $row["CIN"]?></p>
+                                <p class="card-text"><?php echo $row["phone"]?></p>
+                                <p class="card-text"><?php echo $row["email"]?></p>
+                            </div>
                         </div>
-                    </div>
-                    <?php
-                }
+                        <?php
+                    
+
+                    }
+                echo '</div>';
+
             ?>
         </section>
 
