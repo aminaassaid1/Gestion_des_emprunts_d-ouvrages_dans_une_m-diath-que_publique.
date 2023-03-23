@@ -58,6 +58,12 @@
                                         <p>Type : <?php echo $lighn["type_ouvrage"]?></p>
                                     </div>
                                 </div> 
+                                <div>
+                                    <form action="gestinemprent.php" method="GET">
+                                        <input type="submit" class="btn btn-success" value="retour" name="retour">
+                                        <input type='hidden' value="<?=$lighn["ID_emprunt"]?>" class='d-none' name='idemprent' id='id'>
+                                    </form>
+                                </div>
                             </div>
                             <?php
                         }

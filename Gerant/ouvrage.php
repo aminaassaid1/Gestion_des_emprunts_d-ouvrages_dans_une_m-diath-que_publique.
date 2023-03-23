@@ -126,7 +126,7 @@ $con = mysqli_connect('localhost', 'root', '', 'gestion_des_emprunts');
                         <option value="book">book</option>
                         <option value="novel">novel</option>
                         <option value="DVD"> DVD</option>
-                        <option value="research paper ">research paper </option>
+                        <option value="research paper">research paper </option>
                         <option value="magazine">magazine</option>
                     </select>
                     </div>
