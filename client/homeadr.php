@@ -132,24 +132,27 @@ $con = mysqli_connect('localhost', 'root', '', 'gestion_des_emprunts');
                 <?php
                     $SQL= "SELECT * FROM ouvrage";
                     $resulta = mysqli_query($con,$SQL);
-                    while($lighn=mysqli_fetch_assoc($resulta)){
-                        ?>
-                        <div id="card" class="card col-md-5 col-lg-3 p-0 m-0" >
-                            <img src="<?php echo $lighn["image_main"]?>" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5><?php echo $lighn["name_ouvrage"]?></h5>
-                                <div>
-                                    <p> State : <?php echo $lighn["state_ouvrage"]?></p>
-                                    <p>Type : <?php echo $lighn["type_ouvrage"]?></p>
-                                </div>
-                                <form action="reservationadr.php" method="GET">
-                                    <input type="submit" value="reserve" class="btn btn-success" name="reserve">
-                                    <input type='hidden' value="<?=$lighn["ID_ouvrage"]?>" class='d-none' name='ID_ouv' id='id'>
-                                </form>
-                            </div> 
-                        </div>
-                        <?php
-                    }
+                    echo '<div class = "row d-flex justify-content-around pt-5">';
+                        while($lighn=mysqli_fetch_assoc($resulta)){
+                            ?>
+                            <div id="card" class="card col-md-4 col-lg-3 p-0 m-0" >
+                                <img src="<?php echo $lighn["image_main"]?>" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5><?php echo $lighn["name_ouvrage"]?></h5>
+                                    <div>
+                                        <p> State : <?php echo $lighn["state_ouvrage"]?></p>
+                                        <p>Type : <?php echo $lighn["type_ouvrage"]?></p>
+                                    </div>
+                                    <form action="reservationadr.php" method="GET">
+                                        <input type="submit" value="reserve" class="btn btn-success" name="reserve">
+                                        <input type='hidden' value="<?=$lighn["ID_ouvrage"]?>" class='d-none' name='ID_ouv' id='id'>
+                                    </form>
+                                </div> 
+                            </div>
+                            <?php
+                        }
+                    echo '</div>';
+
                 ?>
 
     </section>
